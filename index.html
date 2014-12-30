@@ -25,6 +25,8 @@
     </style>
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <link rel="stylesheet" href="css/bootstrap-image-gallery.css">
 
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
@@ -48,10 +50,9 @@
         <ul class="nav navbar-nav">
             <li><a href="#Sculptures">Sculptures</a></li>
             <li><a href="#Workshops">Workshops</a></li>
-            <li><a href="#Events">Events</a></li>
             <li><a href="#Gallery">Gallery</a></li>
             <li><a href="#Contact">Contact</a></li>
-            <li><a href="#Links">Links</a></li>
+            <li><a href="#NavLinks">Links</a></li>
         </ul>
         <!--/.navbar-collapse -->
     </div>
@@ -71,12 +72,6 @@
         <p>Alicia normally works to commission, and in the Contact page you will find information
             such as phone number, email address, and the location of her studio.</p>
 
-        <p><a href="http://www.wildwillow.co.uk/images/Sculptures/Sheep1.jpg" target="_blank"
-              title="Sheep"><img src="./Home_files/Sheep1_tb.jpg" alt="Sheep" hspace="5" vspace="5"
-                                 width="128" height="85" align="left"></a> In the Events page you
-            will find details of up and coming shows where Alicia will be exhibiting examples of her
-            work.</p>
-
         <p>Alicia is available for demonstrations, talks and to run workshops. You will find more
             information on this in the Workshops page. </p>
 
@@ -87,23 +82,18 @@
 <div class="container">
     <!-- Example row of columns -->
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <h2>Sculptures</h2>
             <p>Alicia's sculptures are built around a steel armature, with willow woven in to form the shape of the
                 animal. </p>
             <p><a class="btn btn-default" href="#Sculptures" role="button">Learn more &raquo;</a></p>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <h2>Workshops</h2>
             <p>Alicia offers a variety of workshops, on demand. </p>
             <p><a class="btn btn-default" href="#Workshops" role="button">Learn more &raquo;</a></p>
         </div>
-        <div class="col-md-3">
-            <h2>Events</h2>
-            <p>Examples of Alicia's work are often on display around the country. </p>
-            <p><a class="btn btn-default" href="#Events" role="button">See events &raquo;</a></p>
-        </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <h2>Gallery</h2>
             <p>See some examples of Alicia's work. </p>
             <p><a class="btn btn-default" href="#Gallery" role="button">See gallery &raquo;</a></p>
@@ -218,30 +208,76 @@
     <hr>
 
     <section>
-        <h1 id="Events">Events</h1>
-        <p>&nbsp;</p>
-
-        <p>Examples of&nbsp; my work will be on display at the following venue (2010)</p>
-
-        <p>&nbsp;</p>
-
-        <p>25th/29th May at <a href="http://www.rhs.org.uk/shows-events/chelsea/index.asp"
-                               target="_blank" title="RHS Chelsea Flower Show">RHS Chelsea Flower
-            Show</a>, 80 Vincent Square,&nbsp; London </p>
-
-        <p>&nbsp;</p><strong><a href="http://www.craftexperience.co.uk/"
-                                target="_blank">Craft Experience</a></strong>
-
-    </section>
-
-    <hr>
-
-    <section>
         <h1 id="Gallery">Gallery</h1>
 
-        Under Construction
+        <div class="container">
+
+            <form class="form-inline">
+                <div class="form-group">
+                    <button id="video-gallery-button" type="button" class="btn btn-success btn-lg">
+                        <i class="glyphicon glyphicon-film"></i>
+                        Launch Video Gallery
+                    </button>
+                </div>
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-success btn-lg">
+                    <i class="glyphicon glyphicon-leaf"></i>
+                    <input id="borderless-checkbox" type="checkbox"> Borderless
+                  </label>
+                  <label class="btn btn-primary btn-lg">
+                    <i class="glyphicon glyphicon-fullscreen"></i>
+                    <input id="fullscreen-checkbox" type="checkbox"> Fullscreen
+                  </label>
+                </div>
+            </form>
+            <br>
+            <div id="links">
+                <a href="Gallery_files/Dog.jpg" title="Dog" data-gallery>
+                    <img src="Gallery_files/Dog_tb.jpg" alt="Dog"></a>
+                <a href="Gallery_files/full_length_willow_lady.jpg" title="Willow Lady" data-gallery>
+                    <img src="Gallery_files/full_length_willow_lady_tb.jpg" alt="Willow Lady"></a>
+                <a href="Gallery_files/lady%20on%20blue%20background.jpg" title="Willow Lady" data-gallery>
+                    <img src="Gallery_files/lady_tb.jpg" alt="Willow Lady"></a>
+            </div>
+
+        </div>
 
     </section>
+    <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+    <div id="blueimp-gallery" class="blueimp-gallery">
+        <!-- The container for the modal slides -->
+        <div class="slides"></div>
+        <!-- Controls for the borderless lightbox -->
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+        <!-- The modal dialog, which will be used to wrap the lightbox content -->
+        <div class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body next"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left prev">
+                            <i class="glyphicon glyphicon-chevron-left"></i>
+                            Previous
+                        </button>
+                        <button type="button" class="btn btn-primary next">
+                            Next
+                            <i class="glyphicon glyphicon-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <hr>
 
@@ -297,7 +333,7 @@ document.write('span>');
 
     <section>
 
-        <h1 id="Links">Links</h1>
+        <h1 id="NavLinks">Links</h1>
         <p>&nbsp;</p>
 
         <p align="left"><a href="http://www.escot-devon.co.uk/" target="_blank">Escot Gardens</a> ,&nbsp;
@@ -336,6 +372,9 @@ document.write('span>');
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
 
 <script src="js/vendor/bootstrap.min.js"></script>
+
+<script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="js/bootstrap-image-gallery.js"></script>
 
 <script src="js/main.js"></script>
 
